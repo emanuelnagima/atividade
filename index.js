@@ -4,7 +4,7 @@ import autenticar from "./segurança/autenticar.js";
 import session from "express-session";
 
 
-const porta = 3200;
+const porta = 3400;
 const localhost = "0.0.0.0" //define onde nosso endereço app estará disponivel 
 const app = express();
 
@@ -16,6 +16,23 @@ app.use(session({
         maxAge: 1000 * 60 * 15 //15minutos max de sessão
     }
 }));
+
+app.get("/login2", (requisicao, resposta) => {
+    resposta.redirect('/login.html');
+})
+
+
+app.post("/login2", (requisicao, resposta)=>{
+    const usuario = requisicao.body.usuario;
+    const senha = requisicao.body.senha;
+    if(usuario === "admin" && senha === "admin"){
+        requisicao.session.autenticado = true;
+        resposta.redirect('/cadastro.html'); }
+        else {
+            resposta.redirect('/login2.html');
+        }
+
+    })
 
 //O HTTP é um protocolo stateless (sem estabelecimento de sessão) o servidor recebe uma requisição, processa e envia uma resposta sem identificar os atores envolvidos
 //prepara o servidor para disponibilizar recursos estaticos

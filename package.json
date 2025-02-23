@@ -5,6 +5,7 @@
   "main": "node.js",
   "type": "module",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/emanuelnagima/atividade/issues"
   },
-  "homepage": "https://github.com/emanuelnagima/atividade#readme"
+  "homepage": "https://github.com/emanuelnagima/atividade#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
 }
