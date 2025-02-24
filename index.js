@@ -12,10 +12,7 @@ app.use(session({
     secret: "m123456789",
     resave: false,
     saveUninitialized: false,
-    cookie: {
-        maxAge: 1000 * 60 * 15 //15minutos max de sessão
-    }
-}));
+}))
 
 app.get("/login2", (requisicao, resposta) => {
     resposta.redirect('/login.html');
